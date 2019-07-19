@@ -6,16 +6,13 @@ OAuth 2.0 Implicit Flow - Lab
 git clone https://github.com/jbeutke/oauth2-implicit-flow-.git
 ```
 
-2. Abrir archivo ./server.js.
-   > En la seccion debajo de la linea '//Step 2: Exchange the code for a token' modificar las constantes con los siguientes valores:
+2. Abrir archivo 'views/index.ejs'.
+   > En la linea 56 modificamos el href para que cuando hagamos click en el boton, le pida un token al servidor de autorizacion.:
 
    ```
 
-    const Token_Endpoint = `http://localhost:8080/v1/oauth/tokens`;
-    const Grant_Type = 'authorization_code';
-    const Code = req.body.code;
-    const Redirect_Uri = 'http://localhost:8000/give/me/the/code';
-    const Scope = 'read';
+                            <a href="http://localhost:8080/web/authorize?response_type=token&client_id=test_client_1&redirect_uri=http://localhost:8000/give/me/the/access/token&state=ZGSwKqq97LP2h6SI" class="btn btn-primary">Go to the authorization server</a>
+
     
     Estos son los parametros que requiere el Authorization Server para entregar un access_token. En base a estos parametros se armara un request para solicitarlo.
 
